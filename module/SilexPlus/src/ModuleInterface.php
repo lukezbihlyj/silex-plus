@@ -10,11 +10,11 @@ interface ModuleInterface
     /**
      * @return string
      */
-    abstract public function getConfigFile();
+    public function getConfigFile();
 
     /**
      * @param Application $app
      * @return void
      */
-    abstract public function init(Application $app);
+    public function init(Application $app);
 }
