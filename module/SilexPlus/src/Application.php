@@ -17,12 +17,12 @@ class Application extends SilexApplication
     /**
      * @var string
      */
-    protected $modulesConfigFile = null;
+    protected $modulesConfigFile;
 
     /**
      * @var string
      */
-    protected $localConfigFile = null;
+    protected $localConfigFile;
 
     /**
      * Initialise the application's dependencies, providers and services. This
