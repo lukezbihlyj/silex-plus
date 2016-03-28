@@ -41,17 +41,17 @@ class Application extends SilexApplication
             $this->register(new ConfigServiceProvider($this->modulesConfigFile));
         }
 
-        // Load local config too.
-        if ($this->localConfigFile) {
-            $this->register(new ConfigServiceProvider($this->localConfigFile));
-        }
-
         // Load extra module configs.
         foreach ($this['modules'] as $module) {
             $moduleClass = $module . '\\Module';
             $module = new $moduleClass();
 
             $this->register(new ConfigServiceProvider($module->getConfigFile()));
+        }
+
+        // Load local config too.
+        if ($this->localConfigFile) {
+            $this->register(new ConfigServiceProvider($this->localConfigFile));
         }
 
         // Check if we should enable Whoops.
