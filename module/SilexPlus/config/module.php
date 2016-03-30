@@ -17,4 +17,21 @@ return [
      * launches.
      */
     'modules' => [],
+
+    /**
+     * Define the name of the application to be shown when running the help command.
+     */
+    'console.name' => 'App',
+
+    /**
+     * Define the version of the application that should be shown when running the
+     * help command.
+     */
+    'console.version' => '1.0.0',
+
+    /**
+     * Define the root directory for the project, which should be set in the application
+     * bootstrap process or in module configuration.
+     */
+    'console.root_directory' => null,
 ];

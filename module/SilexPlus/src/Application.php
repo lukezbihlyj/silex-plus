@@ -4,6 +4,7 @@ namespace LukeZbihlyj\SilexPlus;
 
 use Silex\Application as SilexApplication;
 use Silex\Application\UrlGeneratorTrait;
+use Symfony\Component\HttpFoundation\Request;
 use Igorw\Silex\ConfigServiceProvider;
 use Whoops\Provider\Silex\WhoopsServiceProvider;
 
@@ -69,6 +70,32 @@ class Application extends SilexApplication
 
         // Load custom services.
         $this->registerServices();
+
+        // Initialise the console component.
+        $this->setConsole($this->share(function() {
+            $console = new Console\ConsoleApplication(
+                $this,
+                $this['console.root_directory'],
+                $this['console.name'],
+                $this['console.version']
+            );
+
+            $this->getDispatcher()->dispatch(Console\ConsoleEvents::INIT, new Console\ConsoleEvent($console));
+
+            return $console;
+        });
+    }
+
+    /**
+     * @return mixed
+     */
+    public function run(Request $request)
+    {
+        if (php_sapi_name() === 'cli') {
+            return $this->getConsole()->run();
+        }
+
+        return self::parent($request);
     }
 
     /**
