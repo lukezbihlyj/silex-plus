@@ -83,7 +83,7 @@ class Application extends SilexApplication
             $this->getDispatcher()->dispatch(Console\ConsoleEvents::INIT, new Console\ConsoleEvent($console));
 
             return $console;
-        });
+        }));
     }
 
     /**
