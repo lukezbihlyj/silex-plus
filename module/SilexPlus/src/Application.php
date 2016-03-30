@@ -95,7 +95,7 @@ class Application extends SilexApplication
             return $this->getConsole()->run();
         }
 
-        return self::parent($request);
+        return parent::run($request);
     }
 
     /**
