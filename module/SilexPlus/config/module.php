@@ -34,4 +34,9 @@ return [
      * bootstrap process or in module configuration.
      */
     'console.root_directory' => null,
+
+    /**
+     * Define a list of commands that should be added to the console on initialisation.
+     */
+    'console.commands' => [],
 ];

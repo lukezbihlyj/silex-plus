@@ -73,12 +73,7 @@ class Application extends SilexApplication
 
         // Initialise the console component.
         $this->setConsole($this->share(function() {
-            $console = new Console\ConsoleApplication(
-                $this,
-                $this['console.root_directory'],
-                $this['console.name'],
-                $this['console.version']
-            );
+            $console = new Console\ConsoleApplication($this);
 
             $this->getDispatcher()->dispatch(Console\ConsoleEvents::INIT, new Console\ConsoleEvent($console));
 
@@ -87,9 +82,10 @@ class Application extends SilexApplication
     }
 
     /**
+     * @param Request $request
      * @return mixed
      */
-    public function run(Request $request)
+    public function run(Request $request = null)
     {
         if (php_sapi_name() === 'cli') {
             return $this->getConsole()->run();

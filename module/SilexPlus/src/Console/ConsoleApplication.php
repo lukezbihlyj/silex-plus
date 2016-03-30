@@ -22,18 +22,23 @@ class ConsoleApplication extends BaseApplication
 
     /**
      * @param Application $application
-     * @param string $rootDirectory
-     * @param string $name
-     * @param string $version
+     * @return self
      */
-    public function __construct(Application $application, $rootDirectory, $name = 'Application', $version = '1.0.0')
+    public function __construct(Application $application)
     {
+        $name = $application['console.name'];
+        $version = $application['console.version'];
+
         parent::__construct($name, $version);
 
         $this->application = $application;
-        $this->rootDirectory = $rootDirectory;
+        $this->rootDirectory = $application['console.root_directory'];
 
         $application->boot();
+
+        foreach ($application['console.commands'] as $command) {
+            $this->add(new $command());
+        }
     }
 
     /**
