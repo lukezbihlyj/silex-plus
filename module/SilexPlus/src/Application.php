@@ -70,7 +70,7 @@ class Application extends SilexApplication
         }
 
         // Load the basic services.
-        $app->register(new SessionServiceProvider([
+        $this->register(new SessionServiceProvider([
             'session.storage.options' => [
                 'name' => $this['session.cookie_name'],
                 'cookie_lifetime' => $this['session.lifetime'],
