@@ -73,7 +73,7 @@ class Application extends SilexApplication
         $app->register(new SessionServiceProvider([
             'session.storage.options' => [
                 'name' => $this['session.cookie_name'],
-                'lifetime' => $this['session.lifetime'],
+                'cookie_lifetime' => $this['session.lifetime'],
             ],
         ]));
 
