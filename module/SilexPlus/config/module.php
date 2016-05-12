@@ -18,6 +18,16 @@ return [
      */
     'modules' => [],
 
+    /*
+     * Define the session cookie name.
+     */
+    'session.cookie_name' => 'app-session',
+
+    /**
+     * Define the session cookie lifetime (default ~1 year).
+     */
+    'session.lifetime' => 31536000,
+
     /**
      * Define the name of the application to be shown when running the help command.
      */

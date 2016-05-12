@@ -4,6 +4,7 @@ namespace LukeZbihlyj\SilexPlus;
 
 use Silex\Application as SilexApplication;
 use Silex\Application\UrlGeneratorTrait;
+use Silex\Provider\SessionServiceProvider;
 use Symfony\Component\HttpFoundation\Request;
 use Igorw\Silex\ConfigServiceProvider;
 use Whoops\Provider\Silex\WhoopsServiceProvider;
@@ -67,6 +68,14 @@ class Application extends SilexApplication
 
             $module->init($this);
         }
+
+        // Load the basic services.
+        $app->register(new SessionServiceProvider([
+            'session.storage.options' => [
+                'name' => $this['session.cookie_name'],
+                'lifetime' => $this['session.lifetime'],
+            ],
+        ]));
 
         // Load custom services.
         $this->registerServices();
