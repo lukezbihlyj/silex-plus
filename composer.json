@@ -7,12 +7,14 @@
 
         "silex/silex": "~1.3",
         "filp/whoops": "~1.1.7",
+        "symfony/console": "~3.0",
         "lukezbihlyj/silex-config-service-provider": "~1.0.0"
     },
     "suggest": {
         "lukezbihlyj/silex-router": "Provides simple routing to your application using configuration files.",
         "lukezbihlyj/silex-twig": "Provides the Twig templating system to your application",
-        "lukezbihlyj/silex-orm": "Provides a simple ORM system using the Spot2 library."
+        "lukezbihlyj/silex-orm": "Provides a simple ORM system using the Spot2 library.",
+        "lukezbihlyj/silex-assets": "Provides a comprehensive asset management system using Assetic."
     },
     "autoload": {
         "psr-4": {
