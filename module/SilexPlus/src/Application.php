@@ -77,11 +77,6 @@ class Application extends SilexApplication
             ],
         ]));
 
-        // Start the session handler on every request.
-        $app->before(function($request) {
-            $request->getSession()->start();
-        });
-
         // Load custom services.
         $this->registerServices();
 
@@ -93,6 +88,11 @@ class Application extends SilexApplication
 
             return $console;
         }));
+
+        // Start the session handler on every request.
+        $this->before(function($request) {
+            $request->getSession()->start();
+        });
     }
 
     /**
