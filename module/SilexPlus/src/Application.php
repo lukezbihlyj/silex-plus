@@ -77,6 +77,13 @@ class Application extends SilexApplication
             ],
         ]));
 
+        // Check if we need to set a custom session handler.
+        if (!is_null($this['session.storage_handler'])) {
+            $this['session.storage.handler'] = $this->share(function ($app) {
+                return new $app['session.storage_handler']($app);
+            });
+        }
+
         // Load custom services.
         $this->registerServices();
 
@@ -90,7 +97,7 @@ class Application extends SilexApplication
         }));
 
         // Start the session handler on every request.
-        $this->before(function($request) {
+        $this->before(function(Request $request) {
             $request->getSession()->start();
         });
     }

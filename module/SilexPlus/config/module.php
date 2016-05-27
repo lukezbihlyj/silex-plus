@@ -29,6 +29,18 @@ return [
     'session.lifetime' => 31536000,
 
     /**
+     * Define the session storage handler class - if left blank then it will default
+     * to PHP's configured session handler (file based).
+     */
+    'session.storage_handler' => null,
+
+    /**
+     * Optionl: Define the Redis server's connection information for sessions, only used
+     * when the session_handler is set to RedisStorageHandler.
+     */
+    'session.redis' => '127.0.0.1:6379',
+
+    /**
      * Define the name of the application to be shown when running the help command.
      */
     'console.name' => 'App',

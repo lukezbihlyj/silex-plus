@@ -14,7 +14,9 @@
         "lukezbihlyj/silex-router": "Provides simple routing to your application using configuration files.",
         "lukezbihlyj/silex-twig": "Provides the Twig templating system to your application",
         "lukezbihlyj/silex-orm": "Provides a simple ORM system using the Spot2 library.",
-        "lukezbihlyj/silex-assets": "Provides a comprehensive asset management system using Assetic."
+        "lukezbihlyj/silex-assets": "Provides a comprehensive asset management system using Assetic.",
+
+        "colinmollenhour/credis": "Required when using RedisStorageHandler for session management."
     },
     "autoload": {
         "psr-4": {
