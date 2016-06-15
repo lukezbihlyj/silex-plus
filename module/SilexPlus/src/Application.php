@@ -96,9 +96,20 @@ class Application extends SilexApplication
             return $console;
         }));
 
+        // Initialise the console component.
+        $this->setLocaleHandler($this->share(function() {
+            return new Locale\LocaleHandler($this);
+        }));
+
         // Start the session handler on every request.
         $this->before(function(Request $request) {
             $request->getSession()->start();
+        });
+
+        // Setup the localisation service when the request starts too.
+        $this->before(function(Request $request) {
+            $localeHandler = $this->getLocaleHandler();
+            $localeHandler->init();
         });
     }
 
