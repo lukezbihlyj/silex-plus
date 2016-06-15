@@ -63,6 +63,11 @@ return [
     'session.redis' => '127.0.0.1:6379',
 
     /**
+     * Define the supported locales.
+     */
+    'i18n.locales' => ['en_US.utf8'],
+
+    /**
      * Define the default locale to fall back to in case the user hasn't selected
      * one yet.
      */
