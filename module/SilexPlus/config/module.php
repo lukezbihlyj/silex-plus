@@ -65,7 +65,9 @@ return [
     /**
      * Define the supported locales.
      */
-    'i18n.locales' => ['en_US.utf8'],
+    'i18n.locales' => [
+        'English' => 'en_US.utf8',
+    ],
 
     /**
      * Define the default locale to fall back to in case the user hasn't selected
