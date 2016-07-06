@@ -70,12 +70,13 @@ class Application extends SilexApplication
         }
 
         // Load the basic services.
-        $this->register(new SessionServiceProvider([
-            'session.storage.options' => [
-                'name' => $this['session.cookie_name'],
-                'cookie_lifetime' => $this['session.lifetime'],
-            ],
-        ]));
+        $this->register(new SessionServiceProvider());
+
+        // Set the session options.
+        $this['session.storage.options'] = [
+            'name' => $this['session.cookie_name'],
+            'cookie_lifetime' => $this['session.lifetime'],
+        ];
 
         // Check if we need to set a custom session handler.
         if (!is_null($this['session.storage_handler'])) {
