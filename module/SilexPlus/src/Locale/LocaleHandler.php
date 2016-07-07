@@ -70,8 +70,8 @@ class LocaleHandler
 
         $this->locale = $locale;
 
-        putenv('LC_ALL=' . $locale);
-        setlocale(LC_ALL, $locale);
+        putenv('LC_MESSAGES=' . $locale);
+        setlocale(LC_MESSAGES, $locale);
 
         bindtextdomain('app', $this->app['i18n.locale_path']);
         bind_textdomain_codeset('app', 'UTF-8');
