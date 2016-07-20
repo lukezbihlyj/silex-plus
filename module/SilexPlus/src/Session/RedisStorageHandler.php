@@ -81,8 +81,6 @@ class RedisStorageHandler implements SessionHandlerInterface
         $key = self::KEY_PREFIX . $this->app['session.cookie_name'] . $sessionId;
         $sessionData = $this->driver->get($key);
 
-        $this->driver->expire($key, $this->app['session.lifetime']);
-
         return $sessionData;
     }
 
