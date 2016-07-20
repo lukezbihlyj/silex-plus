@@ -104,6 +104,10 @@ class Application extends SilexApplication
 
         // Start the session handler on every request.
         $this->before(function(Request $request) {
+            if (PHP_SAPI === 'cli') {
+                return;
+            }
+
             $request->getSession()->start();
         });
 
