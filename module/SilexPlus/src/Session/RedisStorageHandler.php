@@ -57,19 +57,19 @@ class RedisStorageHandler implements SessionHandlerInterface
     /**
      * @param string $savePath
      * @param string $sessionName
-     * @return void
+     * @return boolean
      */
     public function open($savePath, $sessionName)
     {
-        return;
+        return true;
     }
 
     /**
-     * @return void
+     * @return boolean
      */
     public function close()
     {
-        return;
+        return true;
     }
 
     /**
